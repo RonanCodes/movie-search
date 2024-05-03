@@ -8,7 +8,7 @@ I chose NX instead of the default Angular application as NX provides more modern
 
 ## Setup Properties
 
-npx create-nx-workspace@latest myngapp --preset=angular-standalone
+npx create-nx-workspace@latest movie-search --preset=angular-standalone
 
 ```sh
 ✔ Which bundler would you like to use? · esbuild
