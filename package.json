@@ -6,7 +6,8 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "prettier": "prettier --write \"src/**/*.{ts,html,scss,json}\""
+    "prettier": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
+    "lint": " npx nx run movie-search:lint "
   },
   "private": true,
   "dependencies": {
