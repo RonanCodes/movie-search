@@ -37,18 +37,12 @@ jobs:
 
       - run: npx nx affected -t lint test build e2e-ci
 
-      # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GH_TOKEN }}
-      #     publish_dir: ./dist/movie-search/browser
-
-      - run: npm run build:prod
-
       - name: Automated Version Bump
         uses: phips28/gh-action-bump-version@v11.0.4
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - run: npm run build:prod
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
@@ -62,3 +56,10 @@ jobs:
           branch: gh-pages # The branch the action should deploy to.
           folder: dist/movie-search/browser # The folder the action should deploy.
           token: ${{ secrets.GH_TOKEN }} # The GitHub token.
+
+
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GH_TOKEN }}
+      #     publish_dir: ./dist/movie-search/browser
