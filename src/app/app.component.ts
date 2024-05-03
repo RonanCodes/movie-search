@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './views/home/home.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, HomeComponent],
   selector: 'mose-root',
-  template: '<router-outlet></router-outlet>',
+  template: '<mose-home></mose-home>',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {}

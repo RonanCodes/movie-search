@@ -1,0 +1,22 @@
+<!-- A mat toolbar with a span, spacer, and two mat buttons: -->
+<mat-toolbar color="primary">
+  <span>Movie Search</span>
+  <span class="spacer"></span>
+
+  <button color="accent" mat-icon-button title="Search" routerLink="/search">
+    <mat-icon>search</mat-icon>
+  </button>
+
+  <button
+    color="accent"
+    mat-icon-button
+    title="Movie Detail"
+    routerLink="/movie-detail"
+  >
+    <mat-icon>movie</mat-icon>
+  </button>
+</mat-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
