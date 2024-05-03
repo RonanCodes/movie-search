@@ -2,11 +2,19 @@
 
 A simple movie search web application
 
-# Initial setup
+## Initial Requirements
+
+- 2 views: search (default view) and movie detail
+  - Search: input and a paginated list of movies, with the ability to load another batch.
+    - Search should happen once you stop typing.
+  - Movie Detail: Click on movie from search page list and this view loads. It displays detailed information about the movie.
+- Use the Movie DB API: https://developers.themoviedb.org/3/getting-started/introduction
+
+## Initial setup
 
 I chose NX instead of the default Angular application as NX provides more modern tooling along with other benefits such as caching executors, and the usage of NX Cloud with GitHub Actions.
 
-## Setup Properties
+### Setup Properties
 
 npx create-nx-workspace@latest movie-search --preset=angular-standalone
 
