@@ -1,4 +1,4 @@
-# movie-search
+# Movie Search
 
 A simple movie search web application
 
@@ -18,7 +18,7 @@ npx create-nx-workspace@latest myngapp --preset=angular-standalone
 ✔ Set up CI with caching, distribution and test deflaking · github
 ```
 
-# MovieSearch
+# NX Default Readme
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
