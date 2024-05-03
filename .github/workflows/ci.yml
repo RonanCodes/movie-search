@@ -27,7 +27,13 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm ci
+
+      # - run: npm ci
+      - name: Install Dependencies
+        uses: chill-viking/npm-ci@latest
+        with:
+          working_directory: './npm-root-folder/'
+
       - uses: nrwl/nx-set-shas@v4
 
       - run: git branch --track main origin/main
