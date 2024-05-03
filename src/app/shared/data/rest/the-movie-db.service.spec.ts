@@ -6,8 +6,7 @@ describe('TheMovieDbService', () => {
   let service: TheMovieDbService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(TheMovieDbService);
+    service = new TheMovieDbService();
   });
 
   it('should be created', () => {
