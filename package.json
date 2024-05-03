@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "build:prod": "npx nx run movie-search:build --configuration=production",
     "test": "nx test",
     "prettier": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
     "lint": "npx nx run movie-search:lint",
