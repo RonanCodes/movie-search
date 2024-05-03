@@ -15,6 +15,7 @@ A simple movie search web application
 I chose NX instead of the default Angular application as NX provides more modern tooling along with other benefits such as caching executors, and the usage of NX Cloud with GitHub Actions.
 
 NX provides these defaults:
+
 - Jest (instead of Jasmine & Karma)
 - Cypress for e2e
 - Prettier setup
@@ -32,8 +33,8 @@ npx create-nx-workspace@latest movie-search --preset=angular-standalone
 ```
 
 ## Angular Material
-> npx nx add @angular/material
 
+> npx nx add @angular/material
 
 # NX Default Readme
 
