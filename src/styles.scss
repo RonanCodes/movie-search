@@ -8,3 +8,10 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+:root {
+  // TODO: Add in global CSS4 variables:
+  .light-mode {
+    // TODO: In future we can overide the same CSS4 variable when the light-mode class is on the body in the index.html
+  }
+}
