@@ -36,8 +36,15 @@ jobs:
       - run: npx nx-cloud record -- nx format:check
       - run: npx nx affected -t lint test build e2e-ci
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GH_TOKEN }}
+      #     publish_dir: ./dist/movie-search/browser
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./dist/movie-search/browser
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist/movie-search/browser # The folder the action should deploy.
+          token: ${{ secrets.GH_TOKEN }} # The GitHub token.
