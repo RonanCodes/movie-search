@@ -37,18 +37,19 @@ jobs:
 
       - run: npx nx affected -t lint test build e2e-ci
 
-      - name: Automated Version Bump
-        uses: phips28/gh-action-bump-version@v11.0.4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      # TODO: Have the version bump and artifact upload after each PR is merged
+      # - name: Automated Version Bump
+      #   uses: phips28/gh-action-bump-version@v11.0.4
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - run: npm run build:prod
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist/chuck-norris-joke-generator/browser
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: dist
+      #     path: dist/chuck-norris-joke-generator/browser
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
