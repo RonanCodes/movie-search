@@ -51,6 +51,16 @@ I tested the Search Component, I skipped the Mat Input (I would have imported th
 
 I did not create any real Cypress tests.
 
+# Next pieces of work
+
+- [] Add tests for all files
+- [] Add happy flow e2e tests
+- [] Add more media breakpoints for responsive design (mobile vs desktop)
+- [] Add more to the detail page (more css grid, star ratings, etc)
+- [] Use local storage to store last search term
+- [] Add all colors to the shared stylesheet
+- [] Allow light mode toggle
+
 # NX Default Readme
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
