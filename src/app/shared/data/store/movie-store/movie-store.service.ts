@@ -15,7 +15,9 @@ export class MovieStoreService {
 
   public constructor(private theMovieDbService: TheMovieDbService) {}
 
-  public searchMovies(searchQuery: string): void {
+  public searchMovies(searchQuery: string, page = 1): void {
+    searchQuery = `${searchQuery}&page=${page}`;
+
     this.theMovieDbService
       .searchMovies(searchQuery)
       .subscribe((tmdbMovieResponse) => this._movies.next(tmdbMovieResponse));

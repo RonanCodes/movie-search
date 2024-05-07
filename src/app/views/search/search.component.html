@@ -16,15 +16,14 @@
 </header>
 <main>
   @if (movieStoreService.movies$ | async; as moviesResponse) {
-  <small>
-    Showing
-    {{ moviesResponse?.results?.length }} results out of
-    {{ moviesResponse?.total_results }}
-  </small>
+  <small> {{ moviesResponse?.total_results }} total results </small>
   <div class="movies">
-    @for (movie of (moviesResponse)?.results; track movie) {
+    @for (movie of (moviesResponse)?.results; track movie.id) {
     <div class="movie">
-      {{ movie.title }}
+      <!-- TODO: Use Mat Table here: -->
+      <span (click)="goToMovieDetail(movie.id)">
+        {{ movie.title }}
+      </span>
     </div>
     }
   </div>
@@ -32,25 +31,27 @@
   <div class="pagination">
     <span>
       <button
-        [disabled]="moviesResponse?.page === 1"
+        [disabled]="moviesResponse.page === 1"
         color="accent"
         mat-icon-button
         title="Back"
+        (click)="goToPage(moviesResponse.page - 1)"
       >
         <mat-icon>arrow_back</mat-icon>
       </button>
     </span>
     <small>
       Page
-      {{ moviesResponse?.page }}
-      of {{ moviesResponse?.total_pages }}
+      {{ moviesResponse.page }}
+      of {{ moviesResponse.total_pages }}
     </small>
     <span>
       <button
-        [disabled]="moviesResponse?.page === moviesResponse?.total_pages"
+        [disabled]="moviesResponse.page === moviesResponse.total_pages"
         color="accent"
         mat-icon-button
         title="Forward"
+        (click)="goToPage(moviesResponse.page + 1)"
       >
         <mat-icon>arrow_forward</mat-icon>
       </button>

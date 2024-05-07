@@ -37,6 +37,10 @@ small {
   text-align: center;
   .movie {
     font-size: 1.2em;
+
+    span {
+      cursor: pointer;
+    }
   }
 
   .movie {
