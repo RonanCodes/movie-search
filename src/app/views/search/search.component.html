@@ -4,6 +4,7 @@
     <input matInput id="name" type="text" [formControl]="searchFormControl" />
     @if (searchFormControl.value) {
     <button
+      color="accent"
       matSuffix
       mat-icon-button
       aria-label="Clear"
@@ -18,26 +19,6 @@
   @if (movieStoreService.tmdbSearchResponse$ | async; as moviesResponse) {
   <small> {{ moviesResponse?.total_results }} total results </small>
   <div class="movies">
-    <!-- TODO: Delete (leave detail for details view) -->
-    <!-- <table>
-      <tr>
-        <td>&nbsp;</td>
-        <td>Movie Name</td>
-        <td>Release Year</td>
-      </tr>
-
-      @for (movie of (moviesResponse)?.results; track movie.id) {
-      <tr class="movie">
-        <td (click)="goToMovieDetail(movie.id)">
-          {{ movie.title }}
-        </td>
-        <td>
-          {{ movie.release_date }}
-        </td>
-      </tr>
-      }
-    </table> -->
-
     @for (movie of (moviesResponse)?.results; track movie.id) {
     <div class="movie">
       <span (click)="goToMovieDetail(movie.id)">

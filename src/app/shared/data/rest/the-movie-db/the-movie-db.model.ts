@@ -13,6 +13,9 @@ export interface TmdbMovie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  tagline: string;
+  revenue: string;
+  runtime: string;
 }
 
 export interface TmdbSearchResponse {

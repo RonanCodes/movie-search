@@ -8,3 +8,5 @@ export const apiKeyQueryParam = `?api_key=${environment.API_KEY}`;
 export const tmdbApiSearchQuery = `${tmdbApiBaseUrl}search/movie${apiKeyQueryParam}&query=`;
 
 export const tmdbApiFindById = `${tmdbApiBaseUrl}movie/`;
+
+export const tmdbBaseImgUrl = 'https://image.tmdb.org/t/p/w500';
