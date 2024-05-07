@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { debounce, debounceTime } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mose-search',
@@ -30,7 +31,10 @@ export class SearchComponent {
   // TODO: Move this to the MovieStoreService:
   private searchQuery: string | undefined;
 
-  public constructor(public movieStoreService: MovieStoreService) {
+  public constructor(
+    public movieStoreService: MovieStoreService,
+    public router: Router
+  ) {
     this.searchFormControl.valueChanges
       .pipe(debounceTime(500))
       .subscribe((searchQuery) => {
@@ -50,5 +54,6 @@ export class SearchComponent {
 
   public goToMovieDetail(movieId: number): void {
     console.log({ movieId });
+    this.router.navigate([`/movie-detail`, { movieId }]);
   }
 }

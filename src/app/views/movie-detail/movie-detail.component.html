@@ -1,1 +1,5 @@
-<p>movie-detail works!</p>
+<!-- @if(movieStoreService.getMovieDetail(movieId!) | async; as movieDetail){ -->
+@if(tmdbMovie$ | async; as tmdbMovie){
+<h1>{{ tmdbMovie.title }}</h1>
+
+} @else { 🍿 Movie not found 😔 }

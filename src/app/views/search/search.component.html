@@ -15,7 +15,7 @@
   </mat-form-field>
 </header>
 <main>
-  @if (movieStoreService.movies$ | async; as moviesResponse) {
+  @if (movieStoreService.tmdbSearchResponse$ | async; as moviesResponse) {
   <small> {{ moviesResponse?.total_results }} total results </small>
   <div class="movies">
     <!-- TODO: Delete (leave detail for details view) -->

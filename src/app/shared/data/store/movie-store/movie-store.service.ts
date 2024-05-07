@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { TheMovieDbService } from '../../rest/the-movie-db/the-movie-db.service';
-import { ReplaySubject } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  ReplaySubject,
+  filter,
+  map,
+  of,
+  switchMap,
+} from 'rxjs';
 import {
   TmdbMovie,
   TmdbSearchResponse,
@@ -10,16 +18,38 @@ import {
   providedIn: 'root',
 })
 export class MovieStoreService {
-  private _movies = new ReplaySubject<TmdbSearchResponse>(1); // TODO: Update to custom Movie type:
-  public movies$ = this._movies.asObservable();
+  private _tmdbSearchResponse$ = new BehaviorSubject<TmdbSearchResponse | null>(
+    null // null needed to check if the response has been initialised
+  ); // TODO: Update to custom Movie type:
+  public tmdbSearchResponse$ = this._tmdbSearchResponse$
+    .asObservable()
+    .pipe(filter((response) => !!response)); // filter out null
 
   public constructor(private theMovieDbService: TheMovieDbService) {}
+
+  public getMovieDetail(movieId: number): Observable<TmdbMovie> {
+    return this._tmdbSearchResponse$.pipe(
+      switchMap(
+        (response) =>
+          response && response.results.length > 0
+            ? of(response).pipe(
+                map(
+                  ({ results }) =>
+                    results.find(({ id }) => id === movieId) as TmdbMovie
+                )
+              )
+            : this.theMovieDbService.searchMovieById(movieId) // lookup if not in store, this allows direct loading of detail page
+      )
+    );
+  }
 
   public searchMovies(searchQuery: string, page = 1): void {
     searchQuery = `${searchQuery}&page=${page}`;
 
     this.theMovieDbService
       .searchMovies(searchQuery)
-      .subscribe((tmdbMovieResponse) => this._movies.next(tmdbMovieResponse));
+      .subscribe((tmdbMovieResponse) =>
+        this._tmdbSearchResponse$.next(tmdbMovieResponse)
+      );
   }
 }
