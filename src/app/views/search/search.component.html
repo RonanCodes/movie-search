@@ -1,4 +1,4 @@
-<div>
+<header>
   <mat-form-field class="example-form-field">
     <mat-label>Search</mat-label>
     <input matInput id="name" type="text" [formControl]="searchFormControl" />
@@ -13,13 +13,38 @@
     </button>
     }
   </mat-form-field>
-</div>
-<div>
-  <ul>
-    @for (movie of (movieStoreService.movies$ | async)?.results; track movie) {
-    <li>
+</header>
+<main>
+  @if (movieStoreService.movies$ | async; as moviesResponse) {
+  <small>
+    Showing
+    {{ moviesResponse?.results?.length }} results out of
+    {{ moviesResponse?.total_results }}
+  </small>
+  <div class="movies">
+    @for (movie of (moviesResponse)?.results; track movie) {
+    <div class="movie">
       {{ movie.title }}
-    </li>
+    </div>
     }
-  </ul>
-</div>
+  </div>
+
+  <div class="pagination">
+    <span>
+      <button color="accent" mat-icon-button title="Back">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </span>
+    <small>
+      Page
+      {{ moviesResponse?.page }}
+      of {{ moviesResponse?.total_pages }}
+    </small>
+    <span>
+      <button color="accent" mat-icon-button title="Forward">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </span>
+  </div>
+  }
+</main>

@@ -2,7 +2,52 @@
   width: 100%;
   height: var(--margin-pct);
 
-  * {
+  header,
+  main {
     width: 100%;
+  }
+
+  header mat-form-field {
+    width: 100%;
+  }
+}
+
+h5 {
+  color: lightgray;
+}
+
+main {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pagination {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+small {
+  text-align: center;
+}
+
+.movies {
+  text-align: center;
+  .movie {
+    font-size: 1.1em;
+  }
+
+  .movie {
+    list-style: none;
+    margin-bottom: 5px;
+  }
+  .movie:nth-child(even) {
+    color: orange;
+  }
+
+  .movie:nth-child(odd) {
+    color: lightblue;
   }
 }
