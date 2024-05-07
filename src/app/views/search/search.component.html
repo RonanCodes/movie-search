@@ -31,7 +31,12 @@
 
   <div class="pagination">
     <span>
-      <button color="accent" mat-icon-button title="Back">
+      <button
+        [disabled]="moviesResponse?.page === 1"
+        color="accent"
+        mat-icon-button
+        title="Back"
+      >
         <mat-icon>arrow_back</mat-icon>
       </button>
     </span>
@@ -41,7 +46,12 @@
       of {{ moviesResponse?.total_pages }}
     </small>
     <span>
-      <button color="accent" mat-icon-button title="Forward">
+      <button
+        [disabled]="moviesResponse?.page === moviesResponse?.total_pages"
+        color="accent"
+        mat-icon-button
+        title="Forward"
+      >
         <mat-icon>arrow_forward</mat-icon>
       </button>
     </span>
