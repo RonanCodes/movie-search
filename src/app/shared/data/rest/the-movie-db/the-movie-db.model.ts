@@ -13,6 +13,8 @@ export interface TmdbMovie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  // These three values only exist for the movie detail endpoint:
+  // TODO: Create new interface:
   tagline: string;
   revenue: string;
   runtime: string;

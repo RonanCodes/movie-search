@@ -1,14 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TheMovieDbService } from '../../rest/the-movie-db/the-movie-db.service';
-import {
-  BehaviorSubject,
-  Observable,
-  ReplaySubject,
-  filter,
-  map,
-  of,
-  switchMap,
-} from 'rxjs';
+import { BehaviorSubject, Observable, filter, map, of, switchMap } from 'rxjs';
 import {
   TmdbMovie,
   TmdbSearchResponse,
@@ -27,6 +19,7 @@ export class MovieStoreService {
 
   public constructor(private theMovieDbService: TheMovieDbService) {}
 
+  // TODO: Movie detail actually has more information, so we should always call this endpoint:
   public getMovieDetail(movieId: number): Observable<TmdbMovie> {
     return this._tmdbSearchResponse$.pipe(
       switchMap(
