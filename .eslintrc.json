@@ -35,7 +35,9 @@
             "prefix": "mose",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-unused-vars": "warn",
+        "no-console": "error"
       }
     },
     {

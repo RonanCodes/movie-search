@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { debounce, debounceTime } from 'rxjs';
+import { debounceTime } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,7 +33,7 @@ export class SearchComponent {
 
   public constructor(
     public movieStoreService: MovieStoreService,
-    public router: Router
+    private router: Router
   ) {
     this.searchFormControl.valueChanges
       .pipe(debounceTime(500))
@@ -53,7 +53,6 @@ export class SearchComponent {
   }
 
   public goToMovieDetail(movieId: number): void {
-    console.log({ movieId });
     this.router.navigate([`/movie-detail`, { movieId }]);
   }
 }
