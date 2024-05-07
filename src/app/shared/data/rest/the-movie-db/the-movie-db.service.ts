@@ -6,7 +6,11 @@ import {
   tmdbApiFindById,
   tmdbApiSearchQuery,
 } from './the-movie-db.constant';
-import { TmdbMovie, TmdbSearchResponse } from './the-movie-db.model';
+import {
+  TmdbMovie,
+  TmdbMovieDetail,
+  TmdbSearchResponse,
+} from './the-movie-db.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +24,8 @@ export class TheMovieDbService {
     );
   }
 
-  public searchMovieById(movieId: number): Observable<TmdbMovie> {
-    return this.httpClient.get<TmdbMovie>(
+  public searchMovieById(movieId: number): Observable<TmdbMovieDetail> {
+    return this.httpClient.get<TmdbMovieDetail>(
       `${tmdbApiFindById}${movieId}${apiKeyQueryParam}`
     );
   }

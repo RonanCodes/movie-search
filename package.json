@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "serve": "npm run start",
     "build": "nx build",
     "build:prod": "npx nx run movie-search:build --configuration=production --base-href=/movie-search/",
     "test": "nx test",
@@ -12,6 +13,7 @@
     "e2e": " npx nx run e2e:e2e",
     "e2e:lint": "npx nx run e2e:lint",
     "quality-checks": "npm run build && npm run lint && npm run test && npm run e2e && npm run e2e:lint",
+    "qc": "npm run quality-checks",
     "format": "nx format",
     "format:check": "nx format:check"
   },

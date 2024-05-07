@@ -3,6 +3,7 @@ import { TheMovieDbService } from '../../rest/the-movie-db/the-movie-db.service'
 import { BehaviorSubject, Observable, filter, map, of, switchMap } from 'rxjs';
 import {
   TmdbMovie,
+  TmdbMovieDetail,
   TmdbSearchResponse,
 } from '../../rest/the-movie-db/the-movie-db.model';
 
@@ -19,21 +20,9 @@ export class MovieStoreService {
 
   public constructor(private theMovieDbService: TheMovieDbService) {}
 
-  // TODO: Movie detail actually has more information, so we should always call this endpoint:
-  public getMovieDetail(movieId: number): Observable<TmdbMovie> {
-    return this._tmdbSearchResponse$.pipe(
-      switchMap(
-        (response) =>
-          response && response.results.length > 0
-            ? of(response).pipe(
-                map(
-                  ({ results }) =>
-                    results.find(({ id }) => id === movieId) as TmdbMovie
-                )
-              )
-            : this.theMovieDbService.searchMovieById(movieId) // lookup if not in store, this allows direct loading of detail page
-      )
-    );
+  // TODO: Add some caching for previous requests:
+  public getMovieDetail(movieId: number): Observable<TmdbMovieDetail> {
+    return this.theMovieDbService.searchMovieById(movieId);
   }
 
   public searchMovies(searchQuery: string, page = 1): void {
