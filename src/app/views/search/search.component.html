@@ -1,1 +1,25 @@
-<p>search works!</p>
+<div>
+  <mat-form-field class="example-form-field">
+    <mat-label>Search</mat-label>
+    <input matInput id="name" type="text" [formControl]="searchFormControl" />
+    @if (searchFormControl.value) {
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="searchFormControl.reset()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+</div>
+<div>
+  <ul>
+    @for (movie of (movieStoreService.movies$ | async)?.results; track movie) {
+    <li>
+      {{ movie.title }}
+    </li>
+    }
+  </ul>
+</div>

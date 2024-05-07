@@ -1,20 +1,18 @@
-<!-- A mat toolbar with a span, spacer, and two mat buttons: -->
 <mat-toolbar color="primary">
+  <span class="gutter-item">
+    <button
+      [hidden]="router.url === '/search'"
+      color="accent"
+      mat-icon-button
+      title="Search"
+      routerLink="/search"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </span>
+
   <span>Movie Search</span>
-  <span class="spacer"></span>
-
-  <button color="accent" mat-icon-button title="Search" routerLink="/search">
-    <mat-icon>search</mat-icon>
-  </button>
-
-  <button
-    color="accent"
-    mat-icon-button
-    title="Movie Detail"
-    routerLink="/movie-detail"
-  >
-    <mat-icon>movie</mat-icon>
-  </button>
+  <span class="gutter-item"></span>
 </mat-toolbar>
 
 <main>

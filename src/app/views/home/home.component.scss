@@ -1,13 +1,19 @@
-// mat toolbar with spacer css:
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
 .mat-toolbar {
   display: flex;
   justify-content: space-between;
-  height: 40px;
-}
+  padding: 0px;
+  height: 40px !important;
 
-// spacer:
-.spacer {
-  flex: 1 1 auto;
+  span.gutter-item {
+    width: 50px;
+  }
 }
 
 main {
@@ -15,4 +21,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: var(--margin-pct);
 }
