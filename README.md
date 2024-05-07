@@ -53,6 +53,7 @@ I did not create any real Cypress tests.
 
 # Next pieces of work
 
+- [] Add more detail to the search page, perhaps use cards instead of just names
 - [] Add tests for all files
 - [] Add happy flow e2e tests
 - [] Add more media breakpoints for responsive design (mobile vs desktop)
