@@ -28,9 +28,6 @@ import { Router } from '@angular/router';
 export class SearchComponent {
   public searchFormControl = new FormControl('');
 
-  // TODO: Move this to the MovieStoreService:
-  private searchQuery: string | undefined;
-
   public constructor(
     public movieStoreService: MovieStoreService,
     private router: Router
@@ -41,15 +38,12 @@ export class SearchComponent {
         // TODO: Add in a filter operator:
         if (searchQuery) {
           this.movieStoreService.searchMovies(searchQuery);
-          this.searchQuery = searchQuery;
         }
       });
   }
 
   public goToPage(page: number): void {
-    if (this.searchQuery) {
-      this.movieStoreService.searchMovies(this.searchQuery, page);
-    }
+    this.movieStoreService.searchMovies(undefined, page);
   }
 
   public goToMovieDetail(movieId: number): void {

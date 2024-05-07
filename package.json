@@ -9,7 +9,7 @@
     "build:prod": "npx nx run movie-search:build --configuration=production --base-href=/movie-search/",
     "test": "nx test",
     "prettier": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
-    "lint": "npx nx run movie-search:lint",
+    "lint": "npx nx run movie-search:lint --quiet",
     "e2e": " npx nx run e2e:e2e",
     "e2e:lint": "npx nx run e2e:lint",
     "quality-checks": "npm run build && npm run lint && npm run test && npm run e2e && npm run e2e:lint",
