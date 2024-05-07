@@ -10,7 +10,8 @@
     "prettier": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
     "lint": "npx nx run movie-search:lint",
     "e2e": " npx nx run e2e:e2e",
-    "quality-checks": "npm run build && npm run lint && npm run test && npm run e2e",
+    "e2e:lint": "npx nx run e2e:lint",
+    "quality-checks": "npm run build && npm run lint && npm run test && npm run e2e && npm run e2e:lint",
     "format": "nx format",
     "format:check": "nx format:check"
   },
