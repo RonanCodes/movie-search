@@ -14,7 +14,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    CommonModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

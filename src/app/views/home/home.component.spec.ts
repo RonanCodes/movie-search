@@ -33,8 +33,8 @@ describe('HomeComponent', () => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('mat-toolbar span')?.textContent).toContain(
-      'Movie Search'
-    );
+    expect(
+      compiled.querySelector('mat-toolbar span.title')?.textContent
+    ).toContain('Movie Search');
   });
 });
