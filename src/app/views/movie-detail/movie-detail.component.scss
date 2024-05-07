@@ -28,3 +28,9 @@
 
   grid-gap: 20px;
 }
+
+img {
+  @media (min-width: 1000px) {
+    width: 300px;
+  }
+}

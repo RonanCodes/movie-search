@@ -2,6 +2,15 @@
 
 A simple movie search web application
 
+URL: https://ronancodes.github.io/movie-search/#/search
+
+## Screenshots
+
+![Mobile Search](readme-assets/mobile-search.png)
+![Mobile Detail](readme-assets/mobile-detail.png)
+![Browser Search](readme-assets/browser-search.png)
+![Browser Detail](readme-assets/browser-detail.png)
+
 ## Initial Requirements
 
 - 2 views: search (default view) and movie detail
