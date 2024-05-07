@@ -32,6 +32,10 @@ export class SearchComponent {
     public movieStoreService: MovieStoreService,
     private router: Router
   ) {
+    this.setupAutoSearch();
+  }
+
+  private setupAutoSearch() {
     this.searchFormControl.valueChanges
       .pipe(debounceTime(500))
       .subscribe((searchQuery) => {

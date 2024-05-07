@@ -1,5 +1,5 @@
 <header>
-  <mat-form-field class="example-form-field">
+  <mat-form-field>
     <mat-label>Search</mat-label>
     <input matInput id="name" type="text" [formControl]="searchFormControl" />
     @if (searchFormControl.value) {
@@ -31,6 +31,7 @@
   <div class="pagination">
     <span>
       <button
+        id="back-page-button"
         [disabled]="moviesResponse.page === 1"
         color="accent"
         mat-icon-button
@@ -47,6 +48,7 @@
     </small>
     <span>
       <button
+        id="forward-page-button"
         [disabled]="moviesResponse.page === moviesResponse.total_pages"
         color="accent"
         mat-icon-button
@@ -56,6 +58,10 @@
         <mat-icon>arrow_forward</mat-icon>
       </button>
     </span>
+  </div>
+  } @else {
+  <div class="emoji">
+    <h1>🍿</h1>
   </div>
   }
 </main>

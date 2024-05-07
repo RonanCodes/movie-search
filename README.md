@@ -36,6 +36,12 @@ npx create-nx-workspace@latest movie-search --preset=angular-standalone
 
 > npx nx add @angular/material
 
+## Testing
+
+I tested the Search Component, I skipped the Mat Input (I would have imported the NG Mat Test Harness to help here).
+
+I did not create any real Cypress tests.
+
 # NX Default Readme
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>

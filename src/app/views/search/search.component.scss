@@ -34,6 +34,7 @@ small {
 }
 
 .movies {
+  overflow-x: auto;
   text-align: center;
   .movie {
     font-size: 1.2em;
@@ -53,5 +54,16 @@ small {
 
   .movie:nth-child(odd) {
     color: lightblue;
+  }
+}
+
+.emoji {
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  h1 {
+    text-align: center;
+    font-size: 10em;
   }
 }
