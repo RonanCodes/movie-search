@@ -53,6 +53,16 @@ I did not create any real Cypress tests.
 
 # Next pieces of work
 
+## feedback
+
+- [] Use data-cy attributes for cypress tests
+- [] Have infinite scroll (auto pagination using intersection observer)
+- [] Put the search query in the url rather than the data store
+- [] Look into a store solution (NgXs?)
+- [] Use has CSS selector to check if dark mode toggle was checked rather than adding a class to the root body element
+
+## next
+
 - [] Add more detail to the search page, perhaps use cards instead of just names
 - [] Add tests for all files
 - [] Add happy flow e2e tests

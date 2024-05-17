@@ -12,6 +12,8 @@ body {
 :root {
   --margin-pct: 95%;
 
+  // TODO: Check out ::has selector for CSS4
+
   // TODO: Add in global CSS4 variables:
   .light-mode {
     // TODO: In future we can overide the same CSS4 variable when the light-mode class is on the body in the index.html
