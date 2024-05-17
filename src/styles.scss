@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --margin-pct: 95%;
+
+  // TODO: Check out ::has selector for CSS4
+
+  // TODO: Add in global CSS4 variables:
+  .light-mode {
+    // TODO: In future we can overide the same CSS4 variable when the light-mode class is on the body in the index.html
+  }
+}

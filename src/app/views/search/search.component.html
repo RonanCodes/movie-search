@@ -1,0 +1,67 @@
+<header>
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput id="name" type="text" [formControl]="searchFormControl" />
+    @if (searchFormControl.value) {
+    <button
+      color="accent"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="searchFormControl.reset()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    } 
+  </mat-form-field>
+</header>
+<main>
+  @if (movieStoreService.tmdbSearchResponse$ | async; as moviesResponse) {
+  <small> {{ moviesResponse?.total_results }} total results </small>
+  <div class="movies">
+    @for (movie of (moviesResponse)?.results; track movie.id) {
+    <div class="movie">
+      <span (click)="goToMovieDetail(movie.id)">
+        {{ movie.title }}
+      </span>
+    </div>
+    }
+  </div>
+
+  <div class="pagination">
+    <span>
+      <button
+        id="back-page-button"
+        [disabled]="moviesResponse.page === 1"
+        color="accent"
+        mat-icon-button
+        title="Back"
+        (click)="goToPage(moviesResponse.page - 1)"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </span>
+    <small>
+      Page
+      {{ moviesResponse.page }}
+      of {{ moviesResponse.total_pages }}
+    </small>
+    <span>
+      <button
+        id="forward-page-button"
+        [disabled]="moviesResponse.page === moviesResponse.total_pages"
+        color="accent"
+        mat-icon-button
+        title="Forward"
+        (click)="goToPage(moviesResponse.page + 1)"
+      >
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </span>
+  </div>
+  } @else {
+  <div class="emoji">
+    <h1>🍿</h1>
+  </div>
+  }
+</main>

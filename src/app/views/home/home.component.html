@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span class="gutter-item">
+    <button
+      [hidden]="router.url === '/search'"
+      color="accent"
+      mat-icon-button
+      title="Search"
+      routerLink="/search"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </span>
+
+  <span class="title">Movie Search</span>
+  <span class="gutter-item"></span>
+</mat-toolbar>
+
+<main>
+  <router-outlet />
+</main>

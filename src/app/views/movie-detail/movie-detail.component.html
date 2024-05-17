@@ -1,0 +1,41 @@
+@if(tmdbMovie$ | async; as tmdbMovie){
+<div class="grid-container">
+  <img
+    style="grid-row: 1 / span 1"
+    [src]="tmdbBaseImgUrlView + tmdbMovie.poster_path"
+    alt="Movie Poster"
+    width="100%"
+  />
+  <span style="grid-column: 2 / span 4" class="header">
+    <h1>
+      {{ tmdbMovie.title }}
+    </h1>
+    <small style="color: lightgray; padding-bottom: 10px">{{
+      tmdbMovie.tagline
+    }}</small>
+    <p>{{ tmdbMovie.overview }}</p>
+  </span>
+
+  <span style="grid-row-start: 2"
+    ><strong>Release Date: </strong><br />{{ tmdbMovie.release_date }}</span
+  >
+  <span style="grid-row-start: 2"
+    ><strong>Revenue:</strong> <br />{{ tmdbMovie.revenue | currency }}</span
+  >
+  <span style="grid-row-start: 2"
+    ><strong>Runtime: </strong><br />{{ tmdbMovie.runtime + ' Minutes' }}</span
+  >
+
+  <span style="grid-row-start: 3"
+    ><strong>Popularity:</strong> <br />{{ tmdbMovie.popularity }}</span
+  >
+
+  <span style="grid-row-start: 3"
+    ><strong>Vote Count: </strong><br />{{ tmdbMovie.vote_count }}</span
+  >
+  <span style="grid-row-start: 3"
+    ><strong>Vote Average: </strong><br />{{ tmdbMovie.vote_average }} /
+    10</span
+  >
+</div>
+} @else { 🍿 Movie not found 😔 }
